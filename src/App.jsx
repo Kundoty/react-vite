@@ -4,7 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [posCount, incCount] = useState(0)
+  const [negCount, decCount] = useState(10)
 
   return (
     <>
@@ -16,10 +17,13 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Vite + React + Andy</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={() => incCount((count) => count + 1)}>
+          count is {posCount}
+        </button>
+        <button onClick={() => decCount((count) => count - 1)}>
+          count is {negCount}
         </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
