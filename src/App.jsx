@@ -16,6 +16,20 @@ const companys = [
   {id: 8, name:'TikTok', response: 'rejected'},
 ]
 
+function ApplicationStats({companies}) {
+  const accepted = companies.filter(company => company.response === 'accepted').length
+  const rejected = companies.filter(company => company.response === 'rejected').length
+  const noResponse = companies.filter(company => company.response === 'no response').length
+  return (
+    <div>
+      <h2>Application Stats</h2>
+      <p style={{color : 'LimeGreen'}}>Accepted: {accepted}</p>
+      <p style={{color : 'red'}}>Rejected: {rejected}</p>
+      <p style={{color : 'grey'}}>No Response: {noResponse}</p>
+    </div>
+  )
+}
+
 const greetings = [
   'Hello!',
   'Hi there!',
@@ -105,7 +119,11 @@ function App() {
           <p className="read-the-docs">
             Click on the Vite and React logos to learn more
           </p>
-          <CompanyList />
+          <div>
+            <CompanyList />
+            <ApplicationStats companies={companys} />
+          </div>
+          
         </div>
       ) : (
         <div>
